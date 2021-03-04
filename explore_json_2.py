@@ -20,6 +20,7 @@ for eq in list_of_eqs:
     mag = eq['properties']['mag']
     lon = eq['geometry']['coordinates'][0]
     lat = eq['geometry']['coordinates'][1]
+    
     mags.append(mag)
     lons.append(lon)
     lats.append(lat)

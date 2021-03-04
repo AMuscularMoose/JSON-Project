@@ -11,16 +11,18 @@ json.dump(eq_data,outfile,indent=4)
 
 list_of_eqs = eq_data['features']
 
-mags,lons,lats = [],[],[]
+mags,lons,lats,hover_texts = [],[],[],[]
 
 for eq in list_of_eqs:
     mag = eq['properties']['mag']
     lon = eq['geometry']['coordinates'][0]
     lat = eq['geometry']['coordinates'][1]
+    hover_text = eq['properties']['place']
 
     mags.append(mag)
     lons.append(lon)
     lats.append(lat)
+    hover_texts.append(hover_text)
 
 print(mags[:10])
 print(lons[:10])
@@ -35,7 +37,7 @@ data = [
         'type': 'scattergeo',
         'lon': lons,
         'lat': lats,
-        'text': hover_texts
+        'text': hover_texts,
         'marker': {
             'size':[5*mag for mag in mags],
             'color':mags,
